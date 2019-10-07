@@ -42,7 +42,7 @@ def customer_delete(request, pk):
 
 @login_required
 def provider_list(request):
-    provider = Providers.objects.filter()
+    provider = Providers.objects.all()
     return render(request, 'blog/provider_list.html', {'Providers': provider})
 
 
@@ -65,7 +65,7 @@ def provider_edit(request, pk):
 
 @login_required
 def claim_list(request):
-    claim = Claims.objects.filter()
+    claim = Claims.objects.all()
     return render(request, 'blog/claim_list.html', {'Claims': claim})
 
 
