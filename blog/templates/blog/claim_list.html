@@ -46,15 +46,15 @@
             </tr>
             </thead>
             <tbody>
-            {% for customer in customers %}
+            {% for claim in Claims %}
                 <tr>
-                    <td>{{ Claims.claim_number }}</td>
-                    <td>{{ Claims.provider_name }}</td>
-                    <td>{{ Claims.provider_id }}</td>
-                    <td>{{ Claims.cust_name }}</td>
-                    <td>{{ Claims.insurance_number }}</td>
-                    <td>{{ Claims.claim_date }}</td>
-                    <td>{{ Claims.claim_amount }}</td>
+                    <td>{{ claim.claim_number }}</td>
+                    <td>{{ claim.provider_name }}</td>
+                    <td>{{ claim.provider_id }}</td>
+                    <td>{{ claim.cust_name }}</td>
+                    <td>{{ claim.insurance_number }}</td>
+                    <td>{{ claim.claim_date }}</td>
+                    <td>{{ claim.claim_amount }}</td>
                     <td><a href="" class="btn btn-warning">Edit</a>
 
                     <td><a href=""

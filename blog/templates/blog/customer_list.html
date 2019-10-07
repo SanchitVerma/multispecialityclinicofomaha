@@ -45,14 +45,14 @@
             </tr>
             </thead>
             <tbody>
-            {% for customer in customers %}
+            {% for customer in Customers %}
                 <tr>
-                    <td>{{ Customers.cust_name }}</td>
-                    <td>{{ Customers.insurance_number }}</td>
-                    <td>{{ Customers.email }}</td>
-                    <td>{{ Customers.email }}</td>
-                    <td>{{ Customers.phone_number }}</td>
-                    <td>{{ Customers.dob }}</td>
+                    <td>{{ customer.cust_name }}</td>
+                    <td>{{ customer.insurance_number }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.phone_number }}</td>
+                    <td>{{ customer.dob }}</td>
                     <td>{{ customer.address }}</td>
                     <td><a href="{% url 'blog:customer_edit' pk=customer.pk %}" class="btn btn-warning">Edit</a>
 
