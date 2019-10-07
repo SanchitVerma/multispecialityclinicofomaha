@@ -12,7 +12,7 @@ def home(request):
 
 @login_required
 def customer_list(request):
-    customer = Customers.objects.filter()
+    customer = Customers.objects.all()
     return render(request, 'blog/customer_list.html', {'Customers': customer})
 
 
