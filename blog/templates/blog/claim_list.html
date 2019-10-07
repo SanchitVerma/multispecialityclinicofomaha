@@ -50,9 +50,7 @@
                 <tr>
                     <td>{{ claim.claim_number }}</td>
                     <td>{{ claim.provider_name }}</td>
-                    {% for provider in Providers %}
-                        <td>{{ provider.provider_id }}</td>
-                    {% endfor %}
+                    <td>{{ claim.provider.provider_id}}</td>
                     <td>{{ claim.cust_name }}</td>
                     <td>{{ claim.insurance_number }}</td>
                     <td>{{ claim.claim_date }}</td>

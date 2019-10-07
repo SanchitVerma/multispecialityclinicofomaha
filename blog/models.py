@@ -26,7 +26,7 @@ class Providers(models.Model):
     speciality = models.CharField(max_length=100)
 
     def __str__(self):
-        return str(self.provider_name + self.provider_id)
+        return str(self.provider_name)
 
     class Meta:
         verbose_name = "Provider"
@@ -36,7 +36,7 @@ class Providers(models.Model):
 class Claims(models.Model):
     claim_number = models.IntegerField(blank=False, null=False)
     provider_name = models.ForeignKey(Providers, on_delete=models.CASCADE, related_name='a')
-    #provider_id = models.ForeignKey(Providers, on_delete=models.CASCADE, related_name='b')
+    provider_id = models.ForeignKey(Providers, on_delete=models.CASCADE, related_name='b')
     cust_name = models.ForeignKey(Customers, on_delete=models.CASCADE, related_name='c')
     insurance_number = models.ForeignKey(Customers, on_delete=models.CASCADE, related_name='d')
     claim_date = models.DateTimeField()
