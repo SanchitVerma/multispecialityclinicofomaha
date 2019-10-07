@@ -26,7 +26,7 @@ class Providers(models.Model):
     speciality = models.CharField(max_length=100)
 
     def __str__(self):
-        return str(self.provider_name + self.provider_id)
+        return str(self.provider_name)
 
     class Meta:
         verbose_name = "Provider"
