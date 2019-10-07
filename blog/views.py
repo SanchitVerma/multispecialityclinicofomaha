@@ -64,6 +64,13 @@ def provider_edit(request, pk):
 
 
 @login_required
+def provider_delete(request, pk):
+    provider = get_object_or_404(Providers, pk=pk)
+    provider.delete()
+    return redirect('blog:provider_list')
+
+
+@login_required
 def claim_list(request):
     claim = Claims.objects.all()
     return render(request, 'blog/claim_list.html', {'Claims': claim})
@@ -84,3 +91,10 @@ def claim_edit(request, pk):
         # edit
         form = ClaimForm(instance=claim)
     return render(request, 'blog/claim_edit.html', {'form': form})
+
+
+@login_required
+def claim_delete(request, pk):
+    claim = get_object_or_404(Claims, pk=pk)
+    claim.delete()
+    return redirect('blog:claim_list')
