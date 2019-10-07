@@ -1,0 +1,140 @@
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <title>Multispeciality Clinic Of Omaha</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 450px
+        }
+        /* Set background color and height */
+        .sidenav {
+            padding-top: 40px;
+            background-color: #ba832f;
+            height: 100%;
+        }
+        /* Set background color, white text and some padding */
+        footer {
+            background-color: #ba832f;
+            color: #ff582c;
+            padding: 15px;
+        }
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body id="app-layout">
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <!-- Collapsed Hamburger -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#myNavbar">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Branding Image -->
+            <a class="navbar-brand" href="/">
+                Multispeciality Clinic Of Omaha
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'blog:home' %}">Home</a></li>
+                <li><a href="{% url 'blog:customer_list' %}">Customers</a></li>
+               <li><a href="{% url 'blog:provider_list' %}">Providers</a></li>
+                <li><a href="{% url 'blog:claim_list' %}">Claims</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{% url 'logout' %}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% block content %}
+                <div class="links">
+                    <!-- Example row of columns -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="{% static "images/customer.jpeg" %}" alt="customer"/>
+                                <div class="caption">
+                                    <h2>Customers</h2>
+                                    <p>Our customer data is secure</p>
+                                    {% if user.is_authenticated %}
+                                        <p><a class="btn btn-default" href="{% url 'blog:customer_list' %}"
+                                              role="button">View
+                                            details &raquo;</a></p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="{% static "images/provider.jpg" %}" alt="provider"/>
+                                <div class="caption">
+                                    <h2>Providers</h2>
+                                    <p>We have a good team of providers for different specializations</p>
+                                    <p><a class="btn btn-default" href="{% url 'blog:provider_list' %}"
+                                           role="button">View
+                                        details &raquo;</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="{% static "images/claim.jpg" %}" alt="claim"/>
+                                <div class="caption">
+                                    <h2>Claims</h2>
+                                    <p>Our claims are up to date</p>
+                                    <p><a class="btn btn-default" href="{% url 'blog:claim_list' %}" role="button">View
+                                        details &raquo;</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>
