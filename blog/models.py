@@ -36,8 +36,7 @@ class Providers(models.Model):
 class Claims(models.Model):
     claim_number = models.IntegerField(blank=False, null=False)
     provider_name = models.ForeignKey(Providers, on_delete=models.CASCADE, related_name='a')
-    provider = Providers.objects.first()
-    provider_id = provider.provider_name.provider_id
+    provider_id = provider_name.provider_id
     cust_name = models.ForeignKey(Customers, on_delete=models.CASCADE, related_name='c')
     insurance_number = models.ForeignKey(Customers, on_delete=models.CASCADE, related_name='d')
     claim_date = models.DateTimeField()
