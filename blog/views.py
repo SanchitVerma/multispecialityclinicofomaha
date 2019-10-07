@@ -17,6 +17,22 @@ def customer_list(request):
 
 
 @login_required
+def customer_new(request):
+    if request.method == "POST":
+        form = CustomerForm(request.POST)
+        if form.is_valid():
+            customer = form.save(commit=False)
+            customer.save()
+            customer = Customers.objects.all()
+            return render(request, 'blog/customer_list.html',
+                          {'customers': customer})
+    else:
+        form = CustomerForm()
+        # print("Else")
+    return render(request, 'blog/customer_new.html', {'form': form})
+
+
+@login_required
 def customer_edit(request, pk):
     customer = get_object_or_404(Customers, pk=pk)
     if request.method == "POST":
