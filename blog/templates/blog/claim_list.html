@@ -50,14 +50,16 @@
                 <tr>
                     <td>{{ claim.claim_number }}</td>
                     <td>{{ claim.provider_name }}</td>
-                    <td>{{ claim.provider_id }}</td>
+                    {% for provider in Providers %}
+                        <td>{{ provider.provider_id }}</td>
+                    {% endfor %}
                     <td>{{ claim.cust_name }}</td>
                     <td>{{ claim.insurance_number }}</td>
                     <td>{{ claim.claim_date }}</td>
                     <td>{{ claim.claim_amount }}</td>
-                    <td><a href="" class="btn btn-warning">Edit</a>
+                    <td><a href="{% url 'blog:claim_edit' pk=claim.pk %}" class="btn btn-warning">Edit</a>
 
-                    <td><a href=""
+                    <td><a href="{% url 'blog:claim_delete' pk=claim.pk %}"
                            onclick="return confirm('Are you sure you want to delete?')"
                            class="btn btn-danger">Delete</a>
                     </td>

@@ -28,7 +28,6 @@ def customer_new(request):
                           {'customers': customer})
     else:
         form = CustomerForm()
-        # print("Else")
     return render(request, 'blog/customer_new.html', {'form': form})
 
 

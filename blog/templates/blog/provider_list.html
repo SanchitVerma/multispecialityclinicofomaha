@@ -47,9 +47,8 @@
                     <td>{{ provider.provider_name }}</td>
                     <td>{{ provider.provider_id }}</td>
                     <td>{{ provider.speciality }}</td>
-                    <td><a href="" class="btn btn-warning">Edit</a>
-
-                    <td><a href=""
+                    <td><a href="{% url 'blog:provider_delete' pk=provider.pk %}" class="btn btn-warning">Edit</a>
+                    <td><a href="{% url 'blog:provider_delete' pk=provider.pk %}"
                            onclick="return confirm('Are you sure you want to delete?')"
                            class="btn btn-danger">Delete</a>
                     </td>

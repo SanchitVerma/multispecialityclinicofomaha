@@ -54,7 +54,6 @@
                     <td>{{ customer.dob }}</td>
                     <td>{{ customer.address }}</td>
                     <td><a href="{% url 'blog:customer_edit' pk=customer.pk %}" class="btn btn-warning">Edit</a>
-
                     <td><a href="{% url 'blog:customer_delete' pk=customer.pk %}"
                            onclick="return confirm('Are you sure you want to delete?')"
                            class="btn btn-danger">Delete</a>
