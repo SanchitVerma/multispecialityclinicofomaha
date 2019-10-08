@@ -75,23 +75,22 @@ WSGI_APPLICATION = 'HealthcareManagement.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#   'default': {
-#      'ENGINE': 'django.db.backends.sqlite3',
-#     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-# }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'da3e5sh325i2fi',
-        'USER': 'zykjbumcrhvnkj',
-        'PASSWORD': '0d12281ebd6c3bec275d6d6ff058fbc0de1df6464e004244ee3df7e8c585c472',
-        'HOST': 'ec2-174-129-227-146.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.postgresql',
+   #     'NAME': 'da3e5sh325i2fi',
+    #    'USER': 'zykjbumcrhvnkj',
+     #   'PASSWORD': '0d12281ebd6c3bec275d6d6ff058fbc0de1df6464e004244ee3df7e8c585c472',
+     #  'PORT': '5432',
+    #}
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

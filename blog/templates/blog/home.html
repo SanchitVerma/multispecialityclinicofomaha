@@ -2,16 +2,16 @@
 {% load staticfiles %}
 {% block content %}
             {% if user.is_authenticated %}
+               {% endif %}
                 <div class="page-container">
 
                     <h2 class="top-menu">Hello {{ user.username }},</h2>
-                       <body style="background-color:Gray;">
-                           < img src="{% static "images/hospital.jpg" %}" width="1200" height="400">
+                       <body style="background-color:#fefefe;">
+                       <img src="{% static "images/hospital.jpg" %}" width="1200" height="400">
                        </body>
-                    <p>Please choose from below options.</p>
+                    <p><br><b>Please choose from below options.</b></p>
 
                 </div>
-            {% endif %}
             <div class="content container">
                 <div class="row">
                     <div class="col-md-12">
@@ -20,7 +20,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="thumbnail">
-                                        <img src="{% static "images/customer.jpeg" %}" alt="customer"/>
+                                        <img src="{% static "images/customer.jpeg" %}" alt="customer" style="width:500px;height:250px;"/>
                                         <div class="caption">
                                             <h2>Customers</h2>
                                             <p>Our customer data is secure.</p>
@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="thumbnail">
-                                        <img src="{% static "images/provider.jpeg" %}" alt="provider"/>
+                                        <img src="{% static "images/provider.jpeg" %}" alt="provider" style="width:500px;height:230px;"/>
                                         <div class="caption">
                                             <h2>Providers</h2>
                                             <p>We have a good team of providers for different specializations.</p>
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="thumbnail">
-                                        <img src="{% static "images/claim.jpg" %}" alt="claim"/>
+                                        <img src="{% static "images/claim.jpg" %}" alt="claim" style="width:500px;height:250px;"/>
                                         <div class="caption">
                                             <h2>Claims</h2>
                                             <p>Our claims are up to date.</p>
@@ -60,4 +60,7 @@
                     </div>
                 </div>
             </div>
+        <div style="background-color:#fefefe;text-align:center;padding:10px;margin-top:7px;length:1200;">
+            <i>© copyright Sanchit Verma</i>
+        </div>
 {% endblock %}
