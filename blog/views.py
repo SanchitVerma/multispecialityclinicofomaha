@@ -31,7 +31,7 @@ def customer_new(request):
         form = CustomerForm()
     send_mail('Hello Customer',
               'You are now registered as a customer with the Multi-speciality Clinic Of Omaha',
-              'sanchitverma2691@gmail.com', ['mcomaha-b1eb84@inbox.mailtrap.io'], fail_silently=False)
+              'sanchitverma2691@gmail.com', ['7784de963-d08f45@inbox.mailtrap.io'], fail_silently=False)
     return render(request, 'blog/customer_new.html', {'form': form})
 
 
