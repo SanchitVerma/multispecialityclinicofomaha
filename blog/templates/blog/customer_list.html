@@ -5,7 +5,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>Below is the list of customers !!</title>
+        <p><br><b>New Customers will get an email notification from the hospital.</b></p>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
     </head>
@@ -15,18 +15,6 @@
             background-color: #f9f9ff;
         }
     </style>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Welcome!</div>
-                    <div class="panel-body">
-                        Healthcare Management System.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row">
         <h2 style="padding-left: 15Px">Customer Details</h2>
     </div>
@@ -62,7 +50,10 @@
             {% endfor %}
             </tbody>
         </table>
-
+        <div class="row">
+            <a href="{% url 'blog:customer_new' %}" class="row"><span
+                    class="btn btn-primary">Add Customer</span></a>
+        </div>
     </div>
     </body>
     </html>

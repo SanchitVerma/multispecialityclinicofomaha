@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import *
 from .forms import *
 from django.shortcuts import redirect
+from django.core.mail import send_mail
 
 
 def home(request):
@@ -28,6 +29,9 @@ def customer_new(request):
                           {'customers': customer})
     else:
         form = CustomerForm()
+    send_mail('Hello Customer',
+              'You are now registered as a customer with the Multi-speciality Clinic Of Omaha',
+              'sanchitverma2691@gmail.com', ['mcomaha-b1eb84@inbox.mailtrap.io'], fail_silently=False)
     return render(request, 'blog/customer_new.html', {'form': form})
 
 
@@ -62,33 +66,24 @@ def provider_list(request):
 
 
 @login_required
-def provider_edit(request, pk):
-    provider = get_object_or_404(Providers, pk=pk)
-    if request.method == "POST":
-        # update
-        form = ProviderForm(request.POST, instance=provider)
-        if form.is_valid():
-            provider = form.save(commit=False)
-            provider.save()
-            return render(request, 'blog/customer_list.html',
-                          {'providers': provider})
-    else:
-        # edit
-        form = ProviderForm(instance=provider)
-    return render(request, 'blog/provider_edit.html', {'form': form})
-
-
-@login_required
-def provider_delete(request, pk):
-    provider = get_object_or_404(Providers, pk=pk)
-    provider.delete()
-    return redirect('blog:provider_list')
-
-
-@login_required
 def claim_list(request):
     claim = Claims.objects.all()
     return render(request, 'blog/claim_list.html', {'Claims': claim})
+
+
+@login_required
+def claim_new(request):
+    if request.method == "POST":
+        form = ClaimForm(request.POST)
+        if form.is_valid():
+            claim = form.save(commit=False)
+            claim.save()
+            claim = Claims.objects.all()
+            return render(request, 'blog/claim_list.html',
+                          {'claims': claim})
+    else:
+        form = ClaimForm()
+    return render(request, 'blog/claim_new.html', {'form': form})
 
 
 @login_required

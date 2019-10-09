@@ -5,28 +5,16 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>Below is the list of providers !!</title>
+        <p><br><b>Contact admin to add more providers to this list.</b></p>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
     </head>
     <body>
     <style>
         body {
-            background-color: #f8fcff;
+            background-color: #f9f9ff;
         }
     </style>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Welcome!</div>
-                    <div class="panel-body">
-                        Healthcare Management System.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row">
         <h2 style="padding-left: 15Px">Provider Details</h2>
     </div>
@@ -37,21 +25,14 @@
                 <th>Provider Name</th>
                 <th>Provider ID</th>
                 <th>Speciality</th>
-
-                <th colspan="3">Actions</th>
             </tr>
             </thead>
             <tbody>
-            {% for provider in providers %}
+            {% for provider in Providers %}
                 <tr>
                     <td>{{ provider.provider_name }}</td>
                     <td>{{ provider.provider_id }}</td>
                     <td>{{ provider.speciality }}</td>
-                    <td><a href="{% url 'blog:provider_delete' pk=provider.pk %}" class="btn btn-warning">Edit</a>
-                    <td><a href="{% url 'blog:provider_delete' pk=provider.pk %}"
-                           onclick="return confirm('Are you sure you want to delete?')"
-                           class="btn btn-danger">Delete</a>
-                    </td>
                 </tr>
             {% endfor %}
             </tbody>

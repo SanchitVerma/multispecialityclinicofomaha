@@ -41,6 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.humanize'
 ]
 
+# email configuration
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'b5293ca5ed48a0'
+EMAIL_HOST_PASSWORD = 'e303ead491e251'
+EMAIL_PORT = '2525'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -75,22 +82,22 @@ WSGI_APPLICATION = 'HealthcareManagement.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#   'default': {
+#      'ENGINE': 'django.db.backends.sqlite3',
+#     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+# }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'da3e5sh325i2fi',
+        'USER': 'zykjbumcrhvnkj',
+        'PASSWORD': '0d12281ebd6c3bec275d6d6ff058fbc0de1df6464e004244ee3df7e8c585c472',
+        'PORT': '5432',
     }
 }
-
-#DATABASES = {
- #   'default': {
-  #      'ENGINE': 'django.db.backends.postgresql',
-   #     'NAME': 'da3e5sh325i2fi',
-    #    'USER': 'zykjbumcrhvnkj',
-     #   'PASSWORD': '0d12281ebd6c3bec275d6d6ff058fbc0de1df6464e004244ee3df7e8c585c472',
-     #  'PORT': '5432',
-    #}
-#}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
