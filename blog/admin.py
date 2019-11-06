@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Customers, Providers, Claims
+from .models import Customers, Providers, Claims, Appointments
 
 
 class CustomersList(admin.ModelAdmin):
@@ -17,13 +17,20 @@ class ProvidersList(admin.ModelAdmin):
 
 
 class ClaimsList(admin.ModelAdmin):
-    list_display = ('claim_number', 'provider_name', 'provider_id', 'cust_name', 'insurance_number', 'claim_date',
-                    'claim_amount')
-    list_filter = ('claim_number', 'cust_name')
-    search_fields = ('claim_number', 'cust_name','provider_name')
+    list_display = ('claim_number', 'provider_id', 'insurance_number', 'claim_date', 'claim_amount')
+    list_filter = ('claim_number', 'provider_id', 'insurance_number')
+    search_fields = ('claim_number', 'provider_id', 'insurance_number')
     ordering = ['claim_number']
+
+
+class AppointmentList(admin.ModelAdmin):
+    list_display = ('appointment_number', 'provider_id', 'insurance_number', 'appointment_date', 'appointment_time')
+    list_filter = ('appointment_number', 'provider_id', 'insurance_number')
+    search_fields = ('appointment_number', 'provider_id', 'insurance_number')
+    ordering = ['appointment_number']
 
 
 admin.site.register(Customers, CustomersList)
 admin.site.register(Providers, ProvidersList)
 admin.site.register(Claims, ClaimsList)
+admin.site.register(Appointments, AppointmentList)

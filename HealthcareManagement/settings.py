@@ -79,24 +79,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'HealthcareManagement.wsgi.application'
 
- #Database
+# Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 # DATABASES = {
-#    'default': {
-#       'ENGINE': 'django.db.backends.sqlite3',
-#      'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#  }
-#  }
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 DATABASES = {
     'default': {
 
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'da3e5sh325i2fi',
-        'USER': 'zykjbumcrhvnkj',
-        'PASSWORD': '0d12281ebd6c3bec275d6d6ff058fbc0de1df6464e004244ee3df7e8c585c472',
-        'HOST': 'ec2-174-129-227-146.compute-1.amazonaws.com',
+        'NAME': 'd6km15oh6l6uq2',
+        'USER': 'yqroycztmwzjue',
+        'PASSWORD': '445975d76e912362afc200f5135e65820242b8a8188f5e19f4d55efc88e915ba',
+        'HOST': 'ec2-107-21-104-31.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
