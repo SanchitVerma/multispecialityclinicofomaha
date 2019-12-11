@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from .models import *
 from .forms import *
@@ -13,14 +14,19 @@ def home(request):
 
 
 @login_required
-@permission_required('blog.view_customer')
+# @permission_required('blog.view_customer')
 def customer_list(request):
+    # permission required implementation
+    request.user.has_perm('blog.view_customer')
     customer = Customers.objects.all()
     return render(request, 'blog/customer_list.html', {'Customers': customer})
 
 
 @login_required
+@permission_required('blog.add_customer')
 def customer_new(request):
+    # permission required implementation
+    request.user.has_perm('blog.add_customer')
     if request.method == "POST":
         form = CustomerForm(request.POST)
         if form.is_valid():
@@ -31,15 +37,17 @@ def customer_new(request):
                           {'customers': customer})
     else:
         form = CustomerForm()
-    send_mail('Hello Customer',
-              'You are now registered as a customer with the Multi-speciality Clinic Of Omaha',
-              'sanchitverma2691@gmail.com', ['7784de963-d08f45@inbox.mailtrap.io'], fail_silently=False)
+    # send_mail('Hello Customer',
+    #           'You are now registered as a customer with the Multi-speciality Clinic Of Omaha',
+    #           'sanchitverma2691@gmail.com', ['7784de963-d08f45@inbox.mailtrap.io'], fail_silently=False)
     return render(request, 'blog/customer_new.html', {'form': form})
 
 
 @login_required
-@permission_required('blog.change_customer')
+# @permission_required('blog.change_customer')
 def customer_edit(request, pk):
+    # permission required implementation
+    request.user.has_perm('blog.change_customer')
     customer = get_object_or_404(Customers, pk=pk)
     if request.method == "POST":
         # update
@@ -58,20 +66,27 @@ def customer_edit(request, pk):
 @login_required
 @permission_required('blog.delete_customer')
 def customer_delete(request, pk):
+    # permission required implementation
+    request.user.has_perm('blog.delete_customer')
     customer = get_object_or_404(Customers, pk=pk)
     customer.delete()
     return redirect('blog:customer_list')
 
 
 @login_required
-@permission_required('blog.view_provider')
+# @permission_required('blog.view_provider')
 def provider_list(request):
+    # permission required implementation
+    request.user.has_perm('blog.view_provider')
     provider = Providers.objects.all()
     return render(request, 'blog/provider_list.html', {'Providers': provider})
 
 
 @login_required
+@permission_required('blog.add_provider')
 def provider_new(request):
+    # permission required implementation
+    request.user.has_perm('blog.add_provider')
     if request.method == "POST":
         form = ProviderForm(request.POST)
         if form.is_valid():
@@ -88,6 +103,8 @@ def provider_new(request):
 @login_required
 @permission_required('blog.change_provider')
 def provider_edit(request, pk):
+    # permission required implementation
+    request.user.has_perm('blog.change_provider')
     provider = get_object_or_404(Providers, pk=pk)
     if request.method == "POST":
         # update
@@ -106,20 +123,27 @@ def provider_edit(request, pk):
 @login_required
 @permission_required('blog.delete_provider')
 def provider_delete(request, pk):
+    # permission required implementation
+    request.user.has_perm('blog.delete_provider')
     provider = get_object_or_404(Providers, pk=pk)
     provider.delete()
     return redirect('blog:provider_list')
 
 
 @login_required
-@permission_required('blog.view_claim')
+# @permission_required('blog.view_claim')
 def claim_list(request):
+    # permission required implementation
+    request.user.has_perm('blog.view_claim')
     claim = Claims.objects.all()
     return render(request, 'blog/claim_list.html', {'Claims': claim})
 
 
 @login_required
+@permission_required('blog.add_claim')
 def claim_new(request):
+    # permission required implementation
+    request.user.has_perm('blog.add_claim')
     if request.method == "POST":
         form = ClaimForm(request.POST)
         if form.is_valid():
@@ -134,8 +158,10 @@ def claim_new(request):
 
 
 @login_required
-@permission_required('blog.change_claim')
+# @permission_required('blog.change_claim')
 def claim_edit(request, pk):
+    # permission required implementation
+    request.user.has_perm('blog.change_claim')
     claim = get_object_or_404(Claims, pk=pk)
     if request.method == "POST":
         # update
@@ -152,22 +178,29 @@ def claim_edit(request, pk):
 
 
 @login_required
-@permission_required('blog.delete_claim')
+# @permission_required('blog.delete_claim')
 def claim_delete(request, pk):
+    # permission required implementation
+    request.user.has_perm('blog.delete_claim')
     claim = get_object_or_404(Claims, pk=pk)
     claim.delete()
     return redirect('blog:claim_list')
 
 
 @login_required
-@permission_required('blog.view_appointment')
+# @permission_required('blog.view_appointment')
 def appointment_list(request):
     appointment = Appointments.objects.all()
+    # permission required implementation
+    request.user.has_perm('blog.view_appointment')
     return render(request, 'blog/appointment_list.html', {'Appointments': appointment})
 
 
 @login_required
+@permission_required('blog.add_appointment')
 def appointment_new(request):
+    # permission required implementation
+    request.user.has_perm('blog.add_appointment')
     if request.method == "POST":
         form = AppointmentForm(request.POST)
         if form.is_valid():
@@ -184,6 +217,8 @@ def appointment_new(request):
 @login_required
 @permission_required('blog.change_appointment')
 def appointment_edit(request, pk):
+    # permission required implementation
+    request.user.has_perm('blog.change_appointment')
     appointment = get_object_or_404(Appointments, pk=pk)
     if request.method == "POST":
         # update
@@ -202,6 +237,8 @@ def appointment_edit(request, pk):
 @login_required
 @permission_required('blog.delete_appointment')
 def appointment_delete(request, pk):
+    # permission required implementation
+    request.user.has_perm('blog.delete_appointment')
     appointment = get_object_or_404(Appointments, pk=pk)
     appointment.delete()
     return redirect('blog:appointment_list')

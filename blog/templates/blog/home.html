@@ -1,13 +1,17 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
 {% block content %}
+            <body style="background-color:#D3D3D3;">
             {% if user.is_authenticated %}
                {% endif %}
                 <div class="page-container">
 
                     <h2 class="top-menu">Hello {{ user.username }},</h2>
+                    <br/>
+                    <br/>
 
                 </div>
+
             <div class="content container">
                 <div class="row">
                     <div class="col-md-12">
@@ -16,7 +20,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="thumbnail">
-                                        <img src="{% static "images/customer.jpg" %}" alt="customer" style="width:500px;height:250px;"/>
+                                        <img src="{% static "images/customer.jpg" %}" alt="customer" style="width:500px;height:250px"/>
                                         <div class="caption">
                                             <h3>Customer Management</h3>
                                             <p><a class="btn btn-primary" href="{% url 'blog:customer_list' %}"
@@ -36,7 +40,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="thumbnail">
-                                        <img src="{% static "images/claim.jpg" %}" alt="claim" style="width:500px;height:250px;"/>
+                                        <img src="{% static "images/claim.jpg" %}" alt="claim" style="width:500px;height:280px;"/>
                                         <div class="caption">
                                             <h3>Claim Management</h3>
                                             <p><a class="btn btn-primary" href="{% url 'blog:claim_list' %}"
@@ -60,7 +64,5 @@
                     </div>
                 </div>
             </div>
-        <div style="background-color:#fefefe;text-align:right;padding:70px;margin-top:7px;length:1200;">
-            <i>© copyright Sanchit Verma</i>
-        </div>
+            </body>
 {% endblock %}

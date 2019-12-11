@@ -1,6 +1,3 @@
-from django.contrib.auth.decorators import login_required
-
-
 from django.db import models
 from django.utils import timezone
 from django.conf import settings
@@ -41,8 +38,12 @@ class Claims(models.Model):
     claim_number = models.IntegerField(primary_key=True, blank=False, null=False)
     provider_id = models.ForeignKey(Providers, on_delete=models.CASCADE, related_name='b')
     insurance_number = models.ForeignKey(Customers, on_delete=models.CASCADE, related_name='d')
-    claim_date = models.DateTimeField()
+    claim_date = models.DateTimeField(default=timezone.now())
     claim_amount = models.IntegerField(blank=False, null=False)
+
+    def created(self):
+        self.claim_date = timezone.now()
+        self.save()
 
     def __str__(self):
         return str(self.claim_number)
