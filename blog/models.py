@@ -1,3 +1,6 @@
+from django.contrib.auth.decorators import login_required
+
+
 from django.db import models
 from django.utils import timezone
 from django.conf import settings
@@ -5,7 +8,6 @@ from django.contrib import admin
 
 
 # Create your models here.
-
 class Customers(models.Model):
     cust_name = models.CharField(max_length=50)
     insurance_number = models.CharField(primary_key=True, max_length=6, blank=False, null=False)

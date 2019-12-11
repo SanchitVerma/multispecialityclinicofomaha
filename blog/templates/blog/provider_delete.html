@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+ {% block body_block %}
+    <h1>Delete {{ provider.provider_id }}?</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-danger" value="Delete">
+        <a href="{% url 'blog:home' pk=customer.provider_id %} ">Cancel</a>
+
+    </form>
+
+{% endblock %}

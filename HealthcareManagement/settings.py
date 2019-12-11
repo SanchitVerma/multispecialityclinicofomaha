@@ -82,22 +82,15 @@ WSGI_APPLICATION = 'HealthcareManagement.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 
 DATABASES = {
     'default': {
-
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd6km15oh6l6uq2',
-        'USER': 'yqroycztmwzjue',
-        'PASSWORD': '445975d76e912362afc200f5135e65820242b8a8188f5e19f4d55efc88e915ba',
-        'HOST': 'ec2-107-21-104-31.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 
