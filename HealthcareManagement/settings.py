@@ -43,10 +43,17 @@ INSTALLED_APPS = [
 
 # email configuration
 
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '8642b283694d27'
-EMAIL_HOST_PASSWORD = 'ab8ea69009bce5'
-EMAIL_PORT = '2525'
+# EMAIL_HOST = os.environ.get('DB_NAME'),
+# EMAIL_HOST = 'smtp.mailtrap.io'
+# EMAIL_HOST_USER = '8642b283694d27'
+# EMAIL_HOST_PASSWORD = 'ab8ea69009bce5'
+# EMAIL_PORT = '2525'
+
+
+# EMAIL_HOST = 'smtp.mailtrap.io'
+# EMAIL_HOST_USER = '8642b283694d27'
+# EMAIL_HOST_PASSWORD = 'ab8ea69009bce5'
+# EMAIL_PORT = '2525'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
