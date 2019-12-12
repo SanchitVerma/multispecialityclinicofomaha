@@ -44,7 +44,7 @@ def customer_new(request):
 
 
 @login_required
-# @permission_required('blog.change_customer')
+@permission_required('blog.change_customer')
 def customer_edit(request, pk):
     # permission required implementation
     request.user.has_perm('blog.change_customer')
@@ -197,7 +197,7 @@ def appointment_list(request):
 
 
 @login_required
-@permission_required('blog.add_appointment')
+# @permission_required('blog.add_appointment')
 def appointment_new(request):
     # permission required implementation
     request.user.has_perm('blog.add_appointment')
@@ -215,7 +215,7 @@ def appointment_new(request):
 
 
 @login_required
-@permission_required('blog.change_appointment')
+# @permission_required('blog.change_appointment')
 def appointment_edit(request, pk):
     # permission required implementation
     request.user.has_perm('blog.change_appointment')
