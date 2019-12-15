@@ -1,6 +1,7 @@
 *.pyc
-*.sqlite3
-myvenv
+db.sqlite3
+a4venv
 _pycache_
 .idea
 .DS_Store
+local_settings.py
